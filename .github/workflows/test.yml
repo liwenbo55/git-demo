@@ -32,5 +32,6 @@ jobs:
       
     steps:  
     - run: |
-          echo "${{github.ref}}"
-          echo "${{github.ref_name}}"
+          echo "github.ref: ${{github.ref}}"
+          echo "github.ref_name: ${{github.ref_name}}"
+          echo "env.name: ${{env.name}}"
