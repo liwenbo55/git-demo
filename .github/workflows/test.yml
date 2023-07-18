@@ -6,5 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo "${{github.ref}}"
+
           echo "${{github.run_id}}"
+          echo "${{github.ref}}"
