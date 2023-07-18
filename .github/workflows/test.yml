@@ -9,3 +9,4 @@ jobs:
 
           echo "${{github.run_id}}"
           echo "${{github.ref}}"
+          echo "${{github.ref_name}}"
