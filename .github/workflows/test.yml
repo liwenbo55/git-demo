@@ -26,14 +26,14 @@ jobs:
   build_and_push:
     if: ${{ (github.event.inputs.environment == 'dev' || github.event.inputs.environment == 'uat' || github.event.inputs.environment == 'prod' || github.event_name == 'push') && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/uat' || github.ref == 'refs/heads/prod')}}
     runs-on: ubuntu-22.04
-    environment:
-      name: ${{ github.ref_name }}
-      url: "http://www.backend-dev.crankbit.com/health-check"
+#     environment:
+#       name: ${{ github.ref_name }}
+#       url: "http://www.backend-dev.crankbit.com/health-check"
       
     steps:  
     - run: |
           echo "github.ref: ${{ github.ref }}"
           echo "github.ref_name: ${{ github.ref_name }}"
           echo "env.name: ${{ env.name }}"
-          echo "github.event.inputs.environment ${{ github.event.inputs.environment }}"
+          echo "github.event.inputs.environment: ${{ github.event.inputs.environment }}"
           echo "finished"
