@@ -1,12 +1,36 @@
-on:
+name: Build Node.js backend and deploy to AWS ECR
+on:   
+  push:
+    branches: 
+      - 'CB**'
+      - prod
+      - uat
+      - main
+
   workflow_dispatch:
+    inputs:
+      environment:
+         description: 'Please select the environment on which to run:'
+         required: true
+         default: 'dev'
+         type: choice
+         options:
+          - dev
+          - uat
+          - prod
+
+permissions:
+  contents: read
 
 jobs:
-  log-the-inputs:
-    runs-on: ubuntu-latest
-    steps:
-      - run: |
-
-          echo "${{github.run_id}}"
+  build_and_push:
+    if: ${{ (github.event.inputs.environment == 'dev' || github.event.inputs.environment == 'uat' || github.event.inputs.environment == 'prod' || github.event_name == 'push') && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/uat' || github.ref == 'refs/heads/prod')}}
+    runs-on: ubuntu-22.04
+    environment:
+      name: ${{ github.ref_name }}
+      url: "this is for test" 
+      
+    steps:  
+    - run: |
           echo "${{github.ref}}"
           echo "${{github.ref_name}}"
