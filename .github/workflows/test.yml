@@ -28,10 +28,12 @@ jobs:
     runs-on: ubuntu-22.04
     environment:
       name: ${{ github.ref_name }}
-      url: "this is for test" 
+      url: "http://www.backend-dev.crankbit.com/health-check"
       
     steps:  
     - run: |
           echo "github.ref: ${{github.ref}}"
           echo "github.ref_name: ${{github.ref_name}}"
           echo "env.name: ${{env.name}}"
+          echo ${{ env.name }}
+          echo "finished"
