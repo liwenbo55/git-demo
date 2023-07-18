@@ -38,7 +38,8 @@ jobs:
       
     steps:  
     - run: |
-          cat main.txt
+          pwd
+          ls
           echo "github.ref: ${{ github.ref }}"
           echo "github.ref_name: ${{ github.ref_name }}"
           echo "env.name: ${{ env.name }}"
