@@ -39,9 +39,10 @@ jobs:
     steps:  
     - run: |
           pwd
-          ls
+          echo "${{var.ENV_NAME}}"
           echo "github.ref: ${{ github.ref }}"
           echo "github.ref_name: ${{ github.ref_name }}"
           echo "env.name: ${{ env.name }}"
           echo "github.event.inputs.environment: ${{ github.event.inputs.environment }}"
           echo "finished"
+          
