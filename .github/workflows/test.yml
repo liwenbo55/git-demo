@@ -43,7 +43,7 @@ jobs:
           echo "${{vars.ENV_NAME}}"
           echo "github.ref: ${{ github.ref }}"
           echo "github.ref_name: ${{ github.ref_name }}"
-          echo "env.name: ${{ env.name }}"
+          echo "env.name: ${{vars.ENV_NAME}}"
           echo "github.event.inputs.environment: ${{ github.event.inputs.environment }}"
           echo "finished"
           
