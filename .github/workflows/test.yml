@@ -1,4 +1,5 @@
 name: Build Node.js backend and deploy to AWS ECR
+run-name: ${{ github.actor }} is running workflow...
 on:   
   push:
     branches: 
